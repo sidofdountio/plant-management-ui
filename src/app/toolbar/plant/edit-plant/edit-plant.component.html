@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Difine plant need</h1>
+<div mat-dialog-content [formGroup]="formPlant">
+    <!-- Plant name -->
+    <div class="row">
+        <div class="col mb-3">
+            <label class="form-label">Plant name</label>
+            <input value="{{ data.name }}" class="form-control" disabled>
+            
+        </div>
+         <!-- Qunitity -->
+        <div class="col">
+            <div class="mb-1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Quanitity of water</mat-label>
+                    <input matInput formControlName="waterQuantity">
+                </mat-form-field>               
+            </div>
+        </div>
+    </div>
+   
+    <!-- wateringFrequency -->
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="outline">
+                <mat-label>Watering Frequency</mat-label>
+                <input matInput formControlName="wateringFrequency">
+            </mat-form-field>
+        </div>
+         <!-- wateringFrequency -->
+        <div class="col">
+            <mat-form-field appearance="outline">
+                <mat-label>Watering Date</mat-label>
+                <input matInput formControlName="wateringDate" type="date">
+            </mat-form-field>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+</div>
+<div mat-dialog-actions>
+    <button matTooltip="ANNULER" mat-raised-button color="warn" (click)="onClose()">ANNULER</button>
+    <button matTooltip="ENREGISTRER" mat-raised-button [disabled]="!formPlant.valid" cdkFocusInitial color="primary"
+        (click)=" onSaveSaleProduct()">ENREGISTRER</button>
+</div>

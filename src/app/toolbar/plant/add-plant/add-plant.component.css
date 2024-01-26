@@ -1,0 +1,11 @@
+.grid-container {
+    margin: 20px;
+}
+
+mat-form-field{
+    margin: 2px;
+    width: 500px;
+}
+.select{
+    display: inline-flex;
+}

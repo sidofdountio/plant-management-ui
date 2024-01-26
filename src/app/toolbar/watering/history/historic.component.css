@@ -1,0 +1,40 @@
+.grid-container {
+    margin: 20px;
+}
+ul{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+ul li{
+    list-style: none;
+}
+ul li{
+    border-radius: 30px;
+    border: 1px solid #eee;
+    background: #FFF;
+    box-shadow: 5px 5px 10px #3333;
+    padding: 20px;
+    width: 600px;
+    height: 150px;
+    margin-bottom: 10px;
+    
+}
+
+
+img{
+   position: relative;
+    left: 10px;
+    border: 1px solid blue;
+    padding: 12px;
+    background: white;
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+ul li span{
+    
+    margin-left: 20px;
+}

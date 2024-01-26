@@ -1,0 +1,18 @@
+<div class="grid-container">
+    <h2 class="mat-2">History</h2>
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <ul>
+                @for (item of waterings; track $index) {
+                <li>
+                    <img [src]="item.plant.imageUrl" alt="">
+                    <span class="text-uppercase">{{ item.plant.name }}</span>
+                    <span>{{ item.date  }}</span>
+                </li>
+            }
+            </ul>
+        </div>
+    </div>
+</div>

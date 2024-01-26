@@ -1,0 +1,6 @@
+:host {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #238636;
+    color: white;
+    display: flex;
+}

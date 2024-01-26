@@ -1,0 +1,63 @@
+<div class="grid-container">
+    <div class="conainer">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mat-1">Add New Plant</h2>
+                <form [formGroup]="plantForm" (ngSubmit)="onSavePlant()" class="form">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Plant name</mat-label>
+                                <input matInput formControlName="name" id="name">
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Buy At</mat-label>
+                                <input matInput formControlName="buyAt" id="buyAt" type="date">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Image url</mat-label>
+                                <input matInput formControlName="imageUrl" id="imageUrl">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col">
+                            <div formGroupName="specieForm" class="select">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Species</mat-label>
+                                    <mat-select formControlName="id">
+                                        @for (specie of species; track specie) {
+                                        <mat-option [value]="specie.id">
+                                            {{specie.name}}
+                                        </mat-option>
+                                        }
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @if (!(isLoading$ | async)) {
+                    <button class="btn btn-primary text-uppercase" type="submit" [disabled]="!plantForm.valid">
+                        save now
+                    </button>
+                    }
+                    @if ((isLoading$ | async)) {
+                    <button class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
