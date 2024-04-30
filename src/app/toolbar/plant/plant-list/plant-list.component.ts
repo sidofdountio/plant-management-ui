@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, inject, AfterViewInit, Pipe, NgModule } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -13,17 +13,19 @@ import { BehaviorSubject } from 'rxjs';
 import { ValidPlantComponent } from '../valid-plant/valid-plant.component';
 import { WateringService } from '../../../service/watering.service';
 import { Watering } from '../../../model/watering';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { DataState } from '../../../model/data-state';
 import { SnackbarService } from '../../../service/snackbar.service';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { Demo17Component } from "../../../demo17/demo17.component"; 
 
 @Component({
-  selector: 'app-plant-list',
-  standalone: true,
-  imports: [MatButtonModule, MatPaginatorModule, MatTableModule, MatIconModule, MatTooltipModule,AsyncPipe,MatProgressSpinnerModule],
-  templateUrl: './plant-list.component.html',
-  styleUrl: './plant-list.component.css'
+    selector: 'app-plant-list',
+    standalone: true,
+    templateUrl: './plant-list.component.html',
+    styleUrl: './plant-list.component.css',
+    imports: [MatButtonModule, MatPaginatorModule, MatTableModule, MatIconModule, MatTooltipModule, AsyncPipe,
+        MatProgressSpinnerModule, DatePipe, Demo17Component]
 })
 export class PlantListComponent implements OnInit {
   readonly DataState = DataState;
@@ -35,6 +37,7 @@ export class PlantListComponent implements OnInit {
   spinnerWateringSubject = new BehaviorSubject<string>('');
   spinnerWatering$ = this.spinnerWateringSubject.asObservable();
   private router = inject(Router);
+  
   constructor(private plantService: PlantService, private dialog: MatDialog,
     private wateringService: WateringService,private snacbarService:SnackbarService) { }
 
@@ -43,7 +46,6 @@ export class PlantListComponent implements OnInit {
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { HistoricComponent } from './toolbar/watering/history/historic.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AddPlantComponent } from './toolbar/plant/add-plant/add-plant.component';
 import { AdminComponent } from './admin/admin.component';
+import { Demo17Component } from './demo17/demo17.component';
 
 export const routes: Routes = [
 
@@ -21,6 +20,11 @@ export const routes: Routes = [
         path: 'add-new-plant',
         component:AddPlantComponent,
         title:'Add New Plant'
+    },
+    {
+        path: 'demo',
+        component:Demo17Component,
+        title:'demo'
     }
 ];
 

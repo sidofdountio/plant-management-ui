@@ -29,7 +29,7 @@ export class PlantService {
     }
 
   getAllPlant(): Observable<Plant[]> {
-    return this.http.get<Plant[]>( `${this.URL}`,{headers: this.createAuthorizationHeaders() })
+    return this.http.get<Plant[]>(`${this.URL}`,{headers: this.createAuthorizationHeaders() })
       .pipe(
         tap(console.log),
         catchError(this.handlerError)
